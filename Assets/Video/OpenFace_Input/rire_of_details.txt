@@ -1,0 +1,10 @@
+Input:C:\Users\nowhe\Documents\IUT\Stage\Semaine 1\TestePersonnage\Assets\Video\OpenFace_Input\rire.mp4
+Input full path:C:\Users\nowhe\Documents\IUT\Stage\Semaine 1\TestePersonnage\Assets\Video\OpenFace_Input\rire.mp4
+Camera parameters:1312.5,1312.5,960,540
+Output csv:rire.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 0
+Landmarks 3D: 0
+Pose: 1
+Shape parameters: 0
