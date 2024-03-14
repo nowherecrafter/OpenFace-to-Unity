@@ -27,8 +27,9 @@ public class AppManager : MonoBehaviour
 
     // Game Objects manipulated by the script
     public Transform Camera;
-    public SkinnedMeshRenderer[] smRenderers;
-    public Transform headBone;
+    SkinnedMeshRenderer[] smRenderers = new SkinnedMeshRenderer[3];
+    public Transform activeAvatar;
+    Transform headBone;
 
     public int testFrame;
 
@@ -45,6 +46,8 @@ public class AppManager : MonoBehaviour
 
     // A list of structures containing data frame by frame
     List<Frame> frames = new List<Frame>();
+ 
+
 
     public Transform GetCamera() { return Camera; }
 
@@ -79,6 +82,13 @@ public class AppManager : MonoBehaviour
         Debug.Log("anim frames " + frames.Count + " | video frames " + player.frameCount);
 
         voice = GetComponent<AudioSource>();
+
+        headBone = activeAvatar.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(4).GetChild(0);
+
+
+        smRenderers[0] = activeAvatar.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
+        smRenderers[1] = activeAvatar.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
+        smRenderers[2] = activeAvatar.GetChild(0).GetChild(2).GetComponent<SkinnedMeshRenderer>();
     }
 
     // Update is called once per frame

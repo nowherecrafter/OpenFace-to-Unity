@@ -1405,7 +1405,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685752097}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 6175e176491e03b43a12de414fbc1c2d, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 83c02d93ef7fa074a8d8a1effc0653f5, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1558,12 +1558,9 @@ MonoBehaviour:
   player: {fileID: 1685752098}
   playKey: 32
   skipFrameKey: 306
-  actionUnitData: {fileID: 4900000, guid: f730e0f32df08fe4eb7e8c161e923ffe, type: 3}
+  actionUnitData: {fileID: 4900000, guid: e8c328aa0d1e12e40932b05f558dfa8e, type: 3}
   Camera: {fileID: 963194228}
-  smRenderers:
-  - {fileID: 4130542155960775882}
-  - {fileID: 3108726670399383310}
-  - {fileID: 3443029461367454697}
+  activeAvatar: {fileID: 3768535662950980075}
   headBone: {fileID: 3187541799345663905}
   testFrame: -1
   parameters: {fileID: 11400000, guid: 3f952e7318e6849439d5251323050de2, type: 2}
@@ -1578,7 +1575,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 828639df5b09aac448d6ddfaac181300, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c768c605a9c4d48428c8e6b620fc40f1, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -25127,13 +25124,13 @@ MonoBehaviour:
   m_Script: {fileID: 974247159, guid: 15b1ae6523c47cc4f9a88453f7173397, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inspStateFoldoutReferences: 1
+  inspStateFoldoutReferences: 0
   inspStateFoldoutHeads: 0
   inspStateFoldoutHeadProps: 1
   inspStateFoldoutAnimBones: 0
-  inspStateFoldoutEyes: 1
+  inspStateFoldoutEyes: 0
   inspStateFoldoutEyeProps: 1
-  inspStateFoldoutEyelids: 0
+  inspStateFoldoutEyelids: 1
   inspStateFoldoutEyelidBlinkProps: 1
   inspStateFoldoutEyelidTrackProps: 1
   drawEyeBoneCaptureControls: 0
