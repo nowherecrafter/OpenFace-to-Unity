@@ -932,7 +932,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 756b0bcd75142f34ea66cd00caf454ab, type: 2}
+  m_Texture: {fileID: 8400000, guid: 24d5f1a9da0905c4ea32f2c1c3424042, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1405,11 +1405,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685752097}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: c7f22d2abd384ea47bc7d6db43a0a180, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6175e176491e03b43a12de414fbc1c2d, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 756b0bcd75142f34ea66cd00caf454ab, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: 24d5f1a9da0905c4ea32f2c1c3424042, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: <noninit>
@@ -1558,7 +1558,7 @@ MonoBehaviour:
   player: {fileID: 1685752098}
   playKey: 32
   skipFrameKey: 306
-  actionUnitData: {fileID: 4900000, guid: f775ffc090706a945a27356e0c4146d2, type: 3}
+  actionUnitData: {fileID: 4900000, guid: f730e0f32df08fe4eb7e8c161e923ffe, type: 3}
   Camera: {fileID: 963194228}
   smRenderers:
   - {fileID: 4130542155960775882}
@@ -1578,7 +1578,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e14d78ca46949de4f8d630a009b76841, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 828639df5b09aac448d6ddfaac181300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -17428,7 +17428,7 @@ MonoBehaviour:
   randomHoldDurationMax: 0.5
   configReady: 1
   warnOnNullRefs: 1
-  inspSalsaLinked: 1
+  inspSalsaLinked: 0
   inspStateFoldoutProcessing: 0
   inspStateFoldoutSettings: 0
   inspStateFoldoutEmotes: 0
@@ -25148,7 +25148,7 @@ MonoBehaviour:
   queueProcessor: {fileID: 1595778150546841668}
   lookTarget: {fileID: 963194228}
   useAffinity: 1
-  affinityPercentage: 0.5
+  affinityPercentage: 0
   hasAffinity: 1
   affinityTimerRange: {x: 2, y: 5}
   updateDelay: 0.07

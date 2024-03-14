@@ -26,6 +26,6 @@ public class AnimParam : ScriptableObject
     public float AU25_r_coef = 100 / 5;
     public float AU25_jaw_coef = -1;
     public float AU26_jaw_coef = -4;
-    public float AU28_max = 60;
+    public float AU28_max = 30;
     public float AU45_r_coef = 100 / 5;
 }

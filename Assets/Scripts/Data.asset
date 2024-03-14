@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2086c58ad518ee4da52aea80805e714, type: 3}
   m_Name: Data
   m_EditorClassIdentifier: 
+  pose_Rx_coef: 0.9
+  pose_Ry_coef: 0.9
+  pose_Rz_coef: 0.9
   AU01_r_coef: 20
   AU02_r_coef: 20
   AU04_r_coef: 20
@@ -29,5 +32,5 @@ MonoBehaviour:
   AU25_r_coef: 20
   AU25_jaw_coef: -1
   AU26_jaw_coef: -4
-  AU28_max: 60
+  AU28_max: 30
   AU45_r_coef: 20
