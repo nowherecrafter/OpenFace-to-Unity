@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Threading;
+using CrazyMinnow.SALSA;
 using Palmmedia.ReportGenerator.Core.CodeAnalysis;
 using Unity.VisualScripting;
 using UnityEditor.Profiling;
@@ -29,6 +30,7 @@ public class AppManager : MonoBehaviour
     public Transform Camera;
     SkinnedMeshRenderer[] smRenderers = new SkinnedMeshRenderer[3];
     public Transform activeAvatar;
+    Eyes eyes;
     Transform headBone;
 
     public int testFrame;
@@ -46,8 +48,17 @@ public class AppManager : MonoBehaviour
 
     // A list of structures containing data frame by frame
     List<Frame> frames = new List<Frame>();
- 
 
+    public void SetEyeAnimsEnabled(bool status)
+    {
+        eyes.EnableEyelidBlink(status);
+        eyes.EnableEye(status);
+    }
+
+    public bool GetEyeAnimsEnabled()
+    {
+        return eyes.blinkEnabled || eyes.eyeEnabled;
+    }
 
     public Transform GetCamera() { return Camera; }
 
@@ -79,16 +90,20 @@ public class AppManager : MonoBehaviour
     void Start()
     {
         frames = CsvImporter.ParseCSV(actionUnitData);
-        Debug.Log("anim frames " + frames.Count + " | video frames " + player.frameCount);
+        //Debug.Log("anim frames " + frames.Count + " | video frames " + player.frameCount);
 
         voice = GetComponent<AudioSource>();
+
+        eyes = activeAvatar.GetComponent<Eyes>();
 
         headBone = activeAvatar.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(4).GetChild(0);
 
 
         smRenderers[0] = activeAvatar.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
         smRenderers[1] = activeAvatar.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
-        smRenderers[2] = activeAvatar.GetChild(0).GetChild(2).GetComponent<SkinnedMeshRenderer>();
+        smRenderers[2] = activeAvatar.GetChild(0).GetChild(11).GetComponent<SkinnedMeshRenderer>();
+
+        //activeAvatar.GetComponent<Eyes>().blinkEnabled = false;
     }
 
     // Update is called once per frame
@@ -161,7 +176,7 @@ public class AppManager : MonoBehaviour
 
                         // reset values after the video ends
                         play = false;
-                        
+                        Instance.SetEyeAnimsEnabled(true);
                         time = 0f;
                     }
                 
@@ -194,6 +209,7 @@ public class AppManager : MonoBehaviour
 
                     // reset values after the video ends
                     play = false;
+                    Instance.SetEyeAnimsEnabled(true);
                     frameIndex = 0;
                     time = 0f;
                 }

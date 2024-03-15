@@ -17,7 +17,7 @@ public class BlendshapeAnimator : MonoBehaviour
 
     private void Start()
     {
-        
+
 
         smRenderers = AppManager.Instance.GetSMRenderers();
         headBone = AppManager.Instance.GetHeadBone();
@@ -36,7 +36,16 @@ public class BlendshapeAnimator : MonoBehaviour
     {
         int bsIndex;
         Vector3 vectorTemp;
-        
+
+        // Disable Salsa eyelid animation if respective action units are recognised
+        if (AppManager.Instance.GetEyeAnimsEnabled() && (frame.AU05_c || frame.AU07_c || frame.AU45_c))
+            AppManager.Instance.SetEyeAnimsEnabled(false);
+
+        if (!AppManager.Instance.GetEyeAnimsEnabled() && !(frame.AU05_c || frame.AU07_c || frame.AU45_c))
+            AppManager.Instance.SetEyeAnimsEnabled(true);
+
+        //Debug.LogWarning("frame nb : " + frame.frame.ToString() + " AU45_c : " + frame.AU45_c + " AU45_r : " + frame.AU45_r);
+
         // Blendshape update
         foreach (SkinnedMeshRenderer renderer in smRenderers)
         {
@@ -80,8 +89,6 @@ public class BlendshapeAnimator : MonoBehaviour
                 renderer.SetBlendShapeWeight(bsIndex, Mathf.Lerp(frame.AU04_c ? frame.AU04_r : 0f, nextFrame.AU04_c ? nextFrame.AU04_r : 0f, frameTime) * param.AU04_r_coef);
 
 
-
-
             bsIndex = renderer.sharedMesh.GetBlendShapeIndex("Eye_Wide_L");
 
             if (bsIndex != -1)
@@ -92,6 +99,7 @@ public class BlendshapeAnimator : MonoBehaviour
             if (bsIndex != -1)
                 renderer.SetBlendShapeWeight(bsIndex, Mathf.Lerp(frame.AU05_c ? frame.AU05_r : 0f, nextFrame.AU05_c ? nextFrame.AU05_r : 0f, frameTime) * param.AU05_r_coef);
 
+            
 
 
 

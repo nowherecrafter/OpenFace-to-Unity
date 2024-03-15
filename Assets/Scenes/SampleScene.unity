@@ -1405,7 +1405,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685752097}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 83c02d93ef7fa074a8d8a1effc0653f5, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 6175e176491e03b43a12de414fbc1c2d, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1558,10 +1558,9 @@ MonoBehaviour:
   player: {fileID: 1685752098}
   playKey: 32
   skipFrameKey: 306
-  actionUnitData: {fileID: 4900000, guid: e8c328aa0d1e12e40932b05f558dfa8e, type: 3}
+  actionUnitData: {fileID: 4900000, guid: f730e0f32df08fe4eb7e8c161e923ffe, type: 3}
   Camera: {fileID: 963194228}
   activeAvatar: {fileID: 3768535662950980075}
-  headBone: {fileID: 3187541799345663905}
   testFrame: -1
   parameters: {fileID: 11400000, guid: 3f952e7318e6849439d5251323050de2, type: 2}
   blendshapeAnimator: {fileID: 1769057786}
@@ -1575,7 +1574,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c768c605a9c4d48428c8e6b620fc40f1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 828639df5b09aac448d6ddfaac181300, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -17425,7 +17424,7 @@ MonoBehaviour:
   randomHoldDurationMax: 0.5
   configReady: 1
   warnOnNullRefs: 1
-  inspSalsaLinked: 0
+  inspSalsaLinked: 1
   inspStateFoldoutProcessing: 0
   inspStateFoldoutSettings: 0
   inspStateFoldoutEmotes: 0
@@ -25128,7 +25127,7 @@ MonoBehaviour:
   inspStateFoldoutHeads: 0
   inspStateFoldoutHeadProps: 1
   inspStateFoldoutAnimBones: 0
-  inspStateFoldoutEyes: 0
+  inspStateFoldoutEyes: 1
   inspStateFoldoutEyeProps: 1
   inspStateFoldoutEyelids: 1
   inspStateFoldoutEyelidBlinkProps: 1
@@ -25384,7 +25383,7 @@ MonoBehaviour:
         textures: []
         materialRenderer: {fileID: 0}
         materials: []
-      inspFoldout: 1
+      inspFoldout: 0
       previewDisplayMode: 0
       collectionExpand: 0
     gizmo: {fileID: 0}
@@ -25456,7 +25455,7 @@ MonoBehaviour:
         textures: []
         materialRenderer: {fileID: 0}
         materials: []
-      inspFoldout: 1
+      inspFoldout: 0
       previewDisplayMode: 0
       collectionExpand: 0
     gizmo: {fileID: 0}
