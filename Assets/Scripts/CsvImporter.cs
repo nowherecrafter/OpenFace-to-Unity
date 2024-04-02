@@ -77,7 +77,7 @@ public static class CsvImporter
             newFrame.AU26_c = values[331] == "1.00";
             newFrame.AU28_c = values[332] == "1.00";
             newFrame.AU45_c = values[333] == "1.00";
-                Debug.Log(newFrame.frame.ToString() + " | " + values[333] + "| " + newFrame.AU45_c.ToString());
+                //Debug.Log(newFrame.frame.ToString() + " | " + values[333] + "| " + newFrame.AU45_c.ToString());
             frames.Add(newFrame);
 
         }

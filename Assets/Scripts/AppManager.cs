@@ -99,9 +99,9 @@ public class AppManager : MonoBehaviour
         headBone = activeAvatar.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(4).GetChild(0);
 
 
-        smRenderers[0] = activeAvatar.GetChild(0).GetChild(0).GetComponent<SkinnedMeshRenderer>();
-        smRenderers[1] = activeAvatar.GetChild(0).GetChild(1).GetComponent<SkinnedMeshRenderer>();
-        smRenderers[2] = activeAvatar.GetChild(0).GetChild(11).GetComponent<SkinnedMeshRenderer>();
+        smRenderers[0] = activeAvatar.GetChild(0).Find("Brows").GetComponent<SkinnedMeshRenderer>();
+        smRenderers[1] = activeAvatar.GetChild(0).Find("CC_Base_Body").GetComponent<SkinnedMeshRenderer>();
+        smRenderers[2] = activeAvatar.GetChild(0).Find("Brows_Extracted0").GetComponent<SkinnedMeshRenderer>();
 
         //activeAvatar.GetComponent<Eyes>().blinkEnabled = false;
     }
