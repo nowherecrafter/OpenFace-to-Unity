@@ -1,24 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Threading;
 using CrazyMinnow.SALSA;
-using Palmmedia.ReportGenerator.Core.CodeAnalysis;
-using Unity.VisualScripting;
-using UnityEditor.Profiling;
 using UnityEngine;
 using UnityEngine.Video;
-using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
-using static UnityEditor.Experimental.GraphView.GraphView;
+
 
 
 
 public class AppManager : MonoBehaviour
 {
-    int bsIndex;
 
+    FeedbackList feedbackListItems;
 
-
+    // Video player and controls
     public VideoPlayer player;
     public KeyCode playKey = KeyCode.Space;
     public KeyCode skipFrameKey = KeyCode.LeftControl;
@@ -28,26 +21,33 @@ public class AppManager : MonoBehaviour
 
     // Game Objects manipulated by the script
     public Transform Camera;
-    SkinnedMeshRenderer[] smRenderers = new SkinnedMeshRenderer[3];
     public Transform activeAvatar;
-    Eyes eyes;
     Transform headBone;
+    SkinnedMeshRenderer[] smRenderers = new SkinnedMeshRenderer[3];
+    AudioSource voice;
+    // Eyes object in SALSA
+    Eyes eyes;
 
-    public int testFrame;
+    
 
     public AnimParam parameters;
 
+    List<FeedbackElement> items;
+
     [SerializeField]BlendshapeAnimator blendshapeAnimator;
 
-
+    // Videoplayer related variables
     float time = 0f;
     bool play = false;
     float frameTime;
-
     int frameIndex = 0;
 
     // A list of structures containing data frame by frame
     List<Frame> frames = new List<Frame>();
+    public FeedbackElement GetFeedback()
+    {
+        return items[frameIndex];
+    }
 
     public void SetEyeAnimsEnabled(bool status)
     {
@@ -57,7 +57,7 @@ public class AppManager : MonoBehaviour
 
     public bool GetEyeAnimsEnabled()
     {
-        return eyes.blinkEnabled || eyes.eyeEnabled;
+        return eyes.blinkEnabled || eyes.eyeEnabled; // true if any is enabled
     }
 
     public Transform GetCamera() { return Camera; }
@@ -68,9 +68,10 @@ public class AppManager : MonoBehaviour
 
     public Frame getFirstFrame() { return frames[0]; }
 
+    public FeedbackList GetFeedbackList() { return feedbackListItems; }
+
     public static AppManager Instance { get; private set; }
 
-    private AudioSource voice;
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
@@ -83,37 +84,32 @@ public class AppManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        feedbackListItems = JsonImporter.ParseJSON();
     }
 
     
     // Start is called before the first frame update
     void Start()
     {
-        frames = CsvImporter.ParseCSV(actionUnitData);
-        //Debug.Log("anim frames " + frames.Count + " | video frames " + player.frameCount);
-
-        voice = GetComponent<AudioSource>();
-
-        eyes = activeAvatar.GetComponent<Eyes>();
-
         headBone = activeAvatar.GetChild(2).GetChild(0).GetChild(0).GetChild(0).GetChild(0).GetChild(4).GetChild(0);
-
 
         smRenderers[0] = activeAvatar.GetChild(0).Find("Brows").GetComponent<SkinnedMeshRenderer>();
         smRenderers[1] = activeAvatar.GetChild(0).Find("CC_Base_Body").GetComponent<SkinnedMeshRenderer>();
         smRenderers[2] = activeAvatar.GetChild(0).Find("Brows_Extracted0").GetComponent<SkinnedMeshRenderer>();
 
-        //activeAvatar.GetComponent<Eyes>().blinkEnabled = false;
+        voice = GetComponent<AudioSource>();
+
+        eyes = activeAvatar.GetComponent<Eyes>();
+
+        frames = CsvImporter.ParseCSV(actionUnitData);
+
+        //player.Play();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log("anim frame " + frameIndex + " | video frame " + player.frame);
-        //Debug.Log("anim time " + time + " | video time " + player.time);
-
-
-
         // Check if the assigned key is pressed
         if (Input.GetKeyDown(playKey))
         {
@@ -179,8 +175,6 @@ public class AppManager : MonoBehaviour
                         Instance.SetEyeAnimsEnabled(true);
                         time = 0f;
                     }
-                
-
                     
                 }
 
