@@ -12,14 +12,13 @@ using UnityEditor;
 
 public static class JsonImporter
 {
-    //weaponDatabase = JsonUtility.FromJson<WeaponListObject>(@"Assets\JSON Data\Weapons");
 
     public static FeedbackList ParseJSON()
     {
-        if (File.Exists(@"Assets\Feedback\FeedbackData.json"))
+        if (File.Exists(@"Assets\Resources\FeedbackData.json"))
         {
             
-            string jsonString = File.ReadAllText(@"Assets\Feedback\FeedbackData.json");
+            string jsonString = File.ReadAllText(@"Assets\Resources\FeedbackData.json");
             FeedbackList import = JsonUtility.FromJson<FeedbackList>(jsonString);
 
             return import;

@@ -22,7 +22,7 @@ public class MenuBrowser : MonoBehaviour
             GameObject newButton = Instantiate(buttonPrefab, buttonMenu.transform);
 
             int fbNum = i;
-            newButton.GetComponent<FeedbackButton>().feedbackName.text = elements[i].name;
+            newButton.GetComponent<FeedbackButton>().feedbackName.text = elements[fbNum].name;
             newButton.GetComponent<Button>().onClick.AddListener( () => SelectFeedback(fbNum) );
         }
     }
@@ -30,6 +30,7 @@ public class MenuBrowser : MonoBehaviour
     private void SelectFeedback(int feedbackId)
     {
         Debug.Log("Loaded " + elements[feedbackId].name);
+        AppManager.Instance.LoadFeedbackRessources(feedbackId);
         //Debug.Log("Loaded " + feedbackId);
     }
 }
